@@ -33,6 +33,12 @@
 			margin-bottom: 20px;
 		}
 
+		header h1 {
+			font-size: 24px;
+			margin-bottom: 20px;
+			/* Отступ между заголовком и кнопкой */
+		}
+
 		button {
 			background-color: #3498db;
 			color: white;
@@ -51,154 +57,32 @@
 		.search-section {
 			display: flex;
 			justify-content: space-between;
-			margin-bottom: 20px;
+			margin-bottom: 30px;
+			/* Увеличенный отступ между поиском и ссылками */
 		}
 
 		#search-input {
 			flex-grow: 1;
 			padding: 12px 15px;
-			/* Увеличенные отступы */
 			border: 2px solid #3498db;
-			/* Граница с цветом */
 			border-radius: 50px;
-			/* Скругленные углы */
 			background-color: transparent;
-			/* Прозрачный фон */
 			color: #ffffff;
-			/* Белый текст */
 			font-size: 16px;
 			outline: none;
-			/* Убираем стандартное выделение при фокусе */
 			transition: border-color 0.3s ease, box-shadow 0.3s ease;
-			/* Анимация */
 		}
 
 		#search-input::placeholder {
 			color: rgba(255, 255, 255, 0.6);
-			/* Цвет placeholder */
 		}
 
 		#search-input:focus {
 			border-color: #2980b9;
-			/* Изменение цвета границы при фокусе */
 			box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
-			/* Легкая тень */
 		}
 
-		/* Кнопка поиска */
-		#search-button {
-			background-color: #3498db;
-			color: white;
-			border: none;
-			padding: 12px 20px;
-			border-radius: 50px;
-			/* Скругленные углы */
-			cursor: pointer;
-			font-size: 16px;
-			transition: background-color 0.3s ease;
-			margin-left: 10px;
-		}
-
-		#search-button:hover {
-			background-color: #2980b9;
-		}
-
-		/* Ссылки */
-		.links-section ul {
-			list-style-type: none;
-			display: flex;
-			flex-direction: column;
-			gap: 15px;
-		}
-
-		.links-section li {
-			background-color: #1e1e1e;
-			padding: 15px;
-			border-radius: 10px;
-			transition: background-color 0.3s ease, box-shadow 0.3s ease;
-			box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-			cursor: pointer;
-			overflow: hidden;
-			/* Убираем возможные артефакты при скруглении */
-		}
-
-		.links-section a {
-			color: #ffffff;
-			/* Белый цвет текста */
-			text-decoration: none;
-			font-size: 18px;
-			font-weight: bold;
-			display: block;
-			/* Занимает всю ширину блока */
-			transition: color 0.3s ease;
-		}
-
-		.links-section li:hover {
-			background-color: #3498db;
-			/* Фон меняется на синий */
-			box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
-			/* Тень усиливается */
-		}
-
-		.links-section li:hover a {
-			color: #ffffff;
-			/* Цвет текста остается белым */
-		}
-
-		/* Светлая тема */
-		body.light {
-			background-color: #ffffff;
-			color: #000000;
-		}
-
-		body.light .container {
-			background-color: #f5f5f5;
-			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-		}
-
-		body.light #search-input {
-			border-color: #3498db;
-			/* Граница остается синей */
-			color: #000000;
-			/* Черный текст */
-		}
-
-		body.light #search-input::placeholder {
-			color: rgba(0, 0, 0, 0.6);
-			/* Полупрозрачный черный placeholder */
-		}
-
-		body.light #search-input:focus {
-			border-color: #2980b9;
-			/* Изменение границы при фокусе */
-			box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
-			/* Легкая тень */
-		}
-
-		body.light #search-button {
-			background-color: #3498db;
-			color: white;
-		}
-
-		body.light #search-button:hover {
-			background-color: #2980b9;
-		}
-
-		body.light .links-section li {
-			background-color: #e0e0e0;
-		}
-
-		body.light .links-section li:hover {
-			background-color: #3498db;
-		}
-
-		body.light .links-section a {
-			color: #000000;
-		}
-
-		body.light .links-section li:hover a {
-			color: #ffffff;
-		}
+		#search
 	</style>
 
 </head>
