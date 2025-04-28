@@ -145,7 +145,7 @@ button:hover {
 
 /* Стиль полосы прокрутки */
 .links-scrollable::-webkit-scrollbar {
-    width: 8px;
+    width: 4px;
 }
 
 .links-scrollable::-webkit-scrollbar-thumb {
