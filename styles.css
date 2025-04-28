@@ -1,0 +1,202 @@
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+/* Поиск */
+.search-section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+#search-input {
+    flex-grow: 1;
+    padding: 12px 15px;
+    border: 2px solid #3498db;
+    border-radius: 50px;
+    background-color: transparent;
+    color: #ffffff;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#search-input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+#search-input:focus {
+    border-color: #2980b9;
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
+}
+
+#search-button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin-left: 10px;
+}
+
+#search-button:hover {
+    background-color: #2980b9;
+}
+
+/* Ссылки */
+.links-section {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-top: 20px;
+}
+
+.links-section h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.links-section ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 0;
+}
+
+.links-section li {
+    background-color: #1e1e1e;
+    padding: 15px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.links-section a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.links-section li:hover {
+    background-color: #3498db;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+}
+
+.links-section li:hover a {
+    color: #ffffff;
+}
+
+/* Стиль полосы прокрутки */
+.links-section::-webkit-scrollbar {
+    width: 8px;
+}
+
+.links-section::-webkit-scrollbar-thumb {
+    background-color: #3498db;
+    border-radius: 10px;
+}
+
+.links-section::-webkit-scrollbar-track {
+    background-color: #1e1e1e;
+}
+
+/* Светлая тема */
+body.light {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+body.light .container {
+    background-color: #f5f5f5;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+body.light #search-input {
+    border-color: #3498db;
+    color: #000000;
+}
+
+body.light #search-input::placeholder {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+body.light #search-input:focus {
+    border-color: #2980b9;
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
+}
+
+body.light #search-button {
+    background-color: #3498db;
+    color: white;
+}
+
+body.light #search-button:hover {
+    background-color: #2980b9;
+}
+
+body.light .links-section li {
+    background-color: #e0e0e0;
+}
+
+body.light .links-section li:hover {
+    background-color: #3498db;
+}
+
+body.light .links-section a {
+    color: #000000;
+}
+
+body.light .links-section li:hover a {
+    color: #ffffff;
+}
