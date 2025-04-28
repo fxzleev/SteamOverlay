@@ -91,17 +91,23 @@ button:hover {
 
 /* Ссылки */
 .links-section {
-    max-height: 300px;
-    overflow-y: auto;
     margin-top: 20px;
 }
 
 .links-section h2 {
     font-size: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
-.links-section ul {
+.links-scrollable {
+    max-height: 300px;
+    overflow-y: auto;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #1e1e1e;
+}
+
+.links-scrollable ul {
     list-style-type: none;
     display: flex;
     flex-direction: column;
@@ -109,8 +115,8 @@ button:hover {
     padding: 0;
 }
 
-.links-section li {
-    background-color: #1e1e1e;
+.links-scrollable li {
+    background-color: #2c2c2c;
     padding: 15px;
     border-radius: 10px;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
@@ -119,7 +125,7 @@ button:hover {
     overflow: hidden;
 }
 
-.links-section a {
+.links-scrollable a {
     color: #ffffff;
     text-decoration: none;
     font-size: 18px;
@@ -128,26 +134,26 @@ button:hover {
     transition: color 0.3s ease;
 }
 
-.links-section li:hover {
+.links-scrollable li:hover {
     background-color: #3498db;
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
 }
 
-.links-section li:hover a {
+.links-scrollable li:hover a {
     color: #ffffff;
 }
 
 /* Стиль полосы прокрутки */
-.links-section::-webkit-scrollbar {
+.links-scrollable::-webkit-scrollbar {
     width: 8px;
 }
 
-.links-section::-webkit-scrollbar-thumb {
+.links-scrollable::-webkit-scrollbar-thumb {
     background-color: #3498db;
     border-radius: 10px;
 }
 
-.links-section::-webkit-scrollbar-track {
+.links-scrollable::-webkit-scrollbar-track {
     background-color: #1e1e1e;
 }
 
@@ -185,18 +191,26 @@ body.light #search-button:hover {
     background-color: #2980b9;
 }
 
-body.light .links-section li {
+body.light .links-scrollable {
+    background-color: #ffffff;
+}
+
+body.light .links-scrollable li {
     background-color: #e0e0e0;
 }
 
-body.light .links-section li:hover {
+body.light .links-scrollable li:hover {
     background-color: #3498db;
 }
 
-body.light .links-section a {
+body.light .links-scrollable a {
     color: #000000;
 }
 
-body.light .links-section li:hover a {
+body.light .links-scrollable li:hover a {
     color: #ffffff;
+}
+
+body.light .links-scrollable::-webkit-scrollbar-track {
+    background-color: #ffffff;
 }
