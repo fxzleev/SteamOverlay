@@ -7,7 +7,6 @@
 	<title>Оверлей Steam</title>
 	<style>
 		/* Общие стили */
-		/* Общие стили */
 		* {
 			margin: 0;
 			padding: 0;
@@ -78,6 +77,8 @@
 			transition: background-color 0.3s ease, box-shadow 0.3s ease;
 			box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 			cursor: pointer;
+			overflow: hidden;
+			/* Убираем возможные артефакты при скруглении */
 		}
 
 		.links-section a {
@@ -88,16 +89,19 @@
 			font-weight: bold;
 			display: block;
 			/* Занимает всю ширину блока */
-			transition: color 0.3s ease, background-color 0.3s ease;
+			transition: color 0.3s ease;
 		}
 
-		.links-section a:hover {
-			color: #ffffff;
-			/* Цвет текста остается белым */
+		.links-section li:hover {
 			background-color: #3498db;
 			/* Фон меняется на синий */
 			box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
 			/* Тень усиливается */
+		}
+
+		.links-section li:hover a {
+			color: #ffffff;
+			/* Цвет текста остается белым */
 		}
 
 		/* Светлая тема */
@@ -115,16 +119,19 @@
 			background-color: #e0e0e0;
 		}
 
+		body.light .links-section li:hover {
+			background-color: #3498db;
+			/* Фон меняется на синий */
+		}
+
 		body.light .links-section a {
 			color: #000000;
 			/* Черный цвет текста */
 		}
 
-		body.light .links-section a:hover {
+		body.light .links-section li:hover a {
 			color: #ffffff;
 			/* Белый текст при наведении */
-			background-color: #3498db;
-			/* Фон меняется на синий */
 		}
 	</style>
 
