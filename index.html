@@ -156,23 +156,48 @@
 			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 		}
 
+		body.light #search-input {
+			border-color: #3498db;
+			/* Граница остается синей */
+			color: #000000;
+			/* Черный текст */
+		}
+
+		body.light #search-input::placeholder {
+			color: rgba(0, 0, 0, 0.6);
+			/* Полупрозрачный черный placeholder */
+		}
+
+		body.light #search-input:focus {
+			border-color: #2980b9;
+			/* Изменение границы при фокусе */
+			box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
+			/* Легкая тень */
+		}
+
+		body.light #search-button {
+			background-color: #3498db;
+			color: white;
+		}
+
+		body.light #search-button:hover {
+			background-color: #2980b9;
+		}
+
 		body.light .links-section li {
 			background-color: #e0e0e0;
 		}
 
 		body.light .links-section li:hover {
 			background-color: #3498db;
-			/* Фон меняется на синий */
 		}
 
 		body.light .links-section a {
 			color: #000000;
-			/* Черный цвет текста */
 		}
 
 		body.light .links-section li:hover a {
 			color: #ffffff;
-			/* Белый текст при наведении */
 		}
 	</style>
 
