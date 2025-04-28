@@ -56,10 +56,51 @@
 
 		#search-input {
 			flex-grow: 1;
-			padding: 10px;
+			padding: 12px 15px;
+			/* Увеличенные отступы */
+			border: 2px solid #3498db;
+			/* Граница с цветом */
+			border-radius: 50px;
+			/* Скругленные углы */
+			background-color: transparent;
+			/* Прозрачный фон */
+			color: #ffffff;
+			/* Белый текст */
+			font-size: 16px;
+			outline: none;
+			/* Убираем стандартное выделение при фокусе */
+			transition: border-color 0.3s ease, box-shadow 0.3s ease;
+			/* Анимация */
+		}
+
+		#search-input::placeholder {
+			color: rgba(255, 255, 255, 0.6);
+			/* Цвет placeholder */
+		}
+
+		#search-input:focus {
+			border-color: #2980b9;
+			/* Изменение цвета границы при фокусе */
+			box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
+			/* Легкая тень */
+		}
+
+		/* Кнопка поиска */
+		#search-button {
+			background-color: #3498db;
+			color: white;
 			border: none;
-			border-radius: 5px;
-			margin-right: 10px;
+			padding: 12px 20px;
+			border-radius: 50px;
+			/* Скругленные углы */
+			cursor: pointer;
+			font-size: 16px;
+			transition: background-color 0.3s ease;
+			margin-left: 10px;
+		}
+
+		#search-button:hover {
+			background-color: #2980b9;
 		}
 
 		/* Ссылки */
