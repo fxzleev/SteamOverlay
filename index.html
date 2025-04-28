@@ -4,10 +4,10 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link type="image/png" sizes="16x16" rel="icon" href="/img/icons8-steam-cute-color-16.png">
-	<link type="image/png" sizes="32x32" rel="icon" href="/img/icons8-steam-cute-color-32.png">
-	<link type="image/png" sizes="96x96" rel="icon" href="/img/icons8-steam-cute-color-96.png">
-	<link type="image/png" sizes="120x120" rel="icon" href="/img/icons8-steam-cute-color-120.png">
+	<link type="image/png" sizes="16x16" rel="icon" href="img/icons8-steam-cute-color-16.png">
+	<link type="image/png" sizes="32x32" rel="icon" href="img/icons8-steam-cute-color-32.png">
+	<link type="image/png" sizes="96x96" rel="icon" href="img/icons8-steam-cute-color-96.png">
+	<link type="image/png" sizes="120x120" rel="icon" href="img/icons8-steam-cute-color-120.png">
 	<title>Оверлей Steam</title>
 	<style>
 		/* Общие стили */
@@ -226,7 +226,7 @@
 	</div>
 
 	<script>
-		//Переключение темы
+		// Переключение темы
 		const themeToggle = document.getElementById('theme-toggle');
 		const body = document.body;
 
@@ -243,7 +243,7 @@
 		searchButton.addEventListener('click', () => {
 			const query = encodeURIComponent(searchInput.value.trim());
 			if (query) {
-				window.open(`https://www.google.com/search?q=${query}`);
+				window.location.href = `https://www.google.com/search?q=${query}`;
 			}
 		});
 
