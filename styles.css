@@ -216,3 +216,33 @@ body.light .links-scrollable li:hover a {
 body.light .links-scrollable::-webkit-scrollbar-track {
     background-color: #ffffff;
 }
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    animation: fadeInUp 1s ease-out;
+}
+
+.steam-logo {
+    width: 120px;
+    height: auto;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Анимация при наведении */
+.logo-container:hover .steam-logo {
+    transform: rotate(360deg);
+}
+
+/* Плавное появление */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
