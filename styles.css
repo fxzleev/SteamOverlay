@@ -225,13 +225,16 @@ body.light .links-scrollable::-webkit-scrollbar-track {
 }
 
 .steam-logo {
-    width: 120px;
+    width: 200px; /* Можно изменить под себя */
     height: auto;
+    border-radius: 10px;
     transition: transform 0.5s ease-in-out;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    background-color: #fff; /* чтобы скрыть прозрачные части, если нужно */
 }
 
 /* Анимация при наведении */
-.logo-container:hover .steam-logo {
+.steam-logo:hover {
     transform: rotate(360deg);
 }
 
