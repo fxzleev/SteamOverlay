@@ -39,13 +39,22 @@
         <div class="logo-container">
           <img
             width="24"
-						height="24"
-						src="img/icons8-steam.svg"
+            height="24"
+            src="img/icons8-steam.svg"
             alt="Steam Logo"
             class="steam-logo"
           />
         </div>
-        <button id="theme-toggle">Переключить тему</button>
+        <label class="theme-switcher" for="theme-toggle-checkbox">
+          <input
+            type="checkbox"
+            id="theme-toggle-checkbox"
+            class="theme-toggle-checkbox"
+          />
+          <span class="slider"></span>
+          <span class="icon sun">☀️</span>
+          <span class="icon moon">🌙</span>
+        </label>
       </header>
 
       <!-- Строка поиска -->

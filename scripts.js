@@ -1,11 +1,29 @@
-// Переключение темы
-const themeToggle = document.getElementById('theme-toggle');
+// Получаем элементы
+const themeToggle = document.getElementById('theme-toggle-checkbox');
 const body = document.body;
 
-themeToggle.addEventListener('click', () => {
-    body.classList.toggle('light');
-    const isLightMode = body.classList.contains('light');
-    themeToggle.textContent = isLightMode ? 'Темная тема' : 'Светлая тема';
+// Загружаем сохранённую тему из localStorage
+document.addEventListener('DOMContentLoaded', () => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+        body.classList.add('light');
+        themeToggle.checked = true;
+    } else {
+        body.classList.remove('light');
+        themeToggle.checked = false;
+    }
+});
+
+// Переключение темы
+themeToggle.addEventListener('change', () => {
+    body.classList.toggle('light', themeToggle.checked);
+
+    // Сохраняем текущую тему
+    if (themeToggle.checked) {
+        localStorage.setItem('theme', 'light');
+    } else {
+        localStorage.setItem('theme', 'dark');
+    }
 });
 
 // Поиск в Google
