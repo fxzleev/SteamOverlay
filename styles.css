@@ -32,6 +32,7 @@ header h1 {
     margin-bottom: 20px;
 }
 
+/* Стиль кнопки переключения темы */
 .theme-toggle {
     position: absolute;
     top: 10px;
@@ -39,13 +40,14 @@ header h1 {
     width: 40px;
     height: 40px;
     border: none;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.1); /* Темная тема по умолчанию */
+    color: white; /* Цвет иконок */
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
     z-index: 10;
 }
 
@@ -53,32 +55,35 @@ header h1 {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Иконки */
-.icon {
+/* На светлой теме — меняем цвет фона и иконок */
+body.light .theme-toggle {
+    background-color: rgba(0, 0, 0, 0.1); /* Легкий серый с прозрачностью */
+    color: black; /* Иконки станут черными */
+}
+
+body.light .theme-toggle:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.theme-toggle::after {
+    content: attr(aria-label);
     position: absolute;
-    width: 20px;
-    height: 20px;
-    color: white;
+    top: -30px;
+    right: 0;
+    background: #222;
+    color: #fff;
+    padding: 4px 8px;
+    font-size: 12px;
+    border-radius: 4px;
     opacity: 0;
-    transform: scale(0.8);
-    transition: all 0.4s ease;
     pointer-events: none;
+    transition: opacity 0.2s ease;
+    white-space: nowrap;
+    font-family: sans-serif;
 }
 
-.icon-sun {
+.theme-toggle:hover::after {
     opacity: 1;
-    transform: scale(1);
-}
-
-body.light .icon-sun {
-    opacity: 0;
-    transform: scale(0.8);
-}
-
-body.light .icon-moon {
-    opacity: 1;
-    transform: scale(1);
-    background-color: black;
 }
 
 /* Поиск */
