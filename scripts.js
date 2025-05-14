@@ -75,7 +75,7 @@ document.querySelectorAll('.game-btn').forEach(button => {
                         <li><a href="https://www.youtube.com/watch?v=gKGYsPqZwVM" target="_blank">Основы МИКРЫ</a></li>
                         <li><p>KZ CYBERSHOKE MAP: kz_variety_fix</p></li>
                         <li><p>BHOP CYBERSHOKE MAP: bhop_arcane final</p></li>
-                        <li><p>DM: Только HSDM 700 киллов и PistolDM 1к киллов</p></li>
+                        <li><p>DM: Только HSDM 500 киллов и PistolDM 500 киллов</p></li>
                         <li><p>Aim_Treeni: Size - 3, Level - 2 набивать 2к - 3к таргетов (Использовать карту в случае если не играете DM)</p></li>
                         <li><p>Но самое главное в тренировке делать упор на вашу слабую зону</p></li>
                     </ul>
