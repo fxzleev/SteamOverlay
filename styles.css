@@ -78,6 +78,7 @@ body.light .icon-sun {
 body.light .icon-moon {
     opacity: 1;
     transform: scale(1);
+    background-color: black;
 }
 
 /* Поиск */
