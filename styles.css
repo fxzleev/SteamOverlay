@@ -36,11 +36,12 @@ header h1 {
     position: absolute;
     top: 0;
     right: 0;
-    display: inline-block;
-    width: 50px;
-    height: 26px;
+    width: 60px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    user-select: none;
     z-index: 10;
 }
 
@@ -48,70 +49,65 @@ header h1 {
     display: none;
 }
 
-/* Ползунок переключателя */
+/* Солнце и луна */
+.sun-icon,
+.moon-icon {
+    position: absolute;
+    font-size: 18px;
+    transition: opacity 0.4s ease, transform 0.3s ease;
+    pointer-events: none;
+    color: #fff;
+}
+
+.sun-icon {
+    opacity: 0;
+    transform: scale(0.8);
+}
+.moon-icon {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Активная светлая тема */
+body.light .sun-icon {
+    opacity: 1;
+    transform: scale(1);
+}
+body.light .moon-icon {
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+/* Ползунок */
 .slider {
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: #ccc;
-    border-radius: 34px;
-    transition: 0.4s;
+    width: 50px;
+    height: 26px;
+    background-color: #3498db;
+    border-radius: 30px;
+    transition: background-color 0.3s ease;
+    z-index: 0;
 }
 
 .slider::before {
-    position: absolute;
     content: "";
+    position: absolute;
     height: 22px;
     width: 22px;
     left: 2px;
     bottom: 2px;
     background-color: white;
     border-radius: 50%;
-    transition: 0.4s;
+    transition: all 0.3s ease;
 }
 
-/* Анимация ползунка при включённом состоянии */
-.theme-toggle-checkbox:checked + .slider::before {
+/* Если активна светлая тема */
+.theme-toggle-checkbox:checked + .sun-icon ~ .slider::before {
     transform: translateX(24px);
 }
 
-.theme-toggle-checkbox:checked + .slider {
-    background-color: #3498db;
-}
-
-/* Иконки Луны и Солнца */
-.icon {
-    position: absolute;
-    top: 2px;
-    font-size: 20px;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-}
-
-.sun {
-    right: 6px;
-    opacity: 0;
-}
-.moon {
-    left: 6px;
-    opacity: 1;
-}
-
-/* Если светлая тема — меняем иконки */
-body.light .sun {
-    opacity: 1;
-}
-body.light .moon {
-    opacity: 0;
-}
-
-.theme-toggle-checkbox:checked ~ .sun {
-    opacity: 1;
-}
-.theme-toggle-checkbox:checked ~ .moon {
-    opacity: 0;
+.theme-toggle-checkbox:checked ~ .slider {
+    background-color: #e67e22;
 }
 
 /* Поиск */
