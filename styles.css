@@ -32,82 +32,52 @@ header h1 {
     margin-bottom: 20px;
 }
 
-.theme-switcher {
+.theme-toggle {
     position: absolute;
-    top: 0;
-    right: 0;
-    width: 60px;
-    height: 30px;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    transition: background-color 0.3s ease;
     z-index: 10;
 }
 
-.theme-switcher .theme-toggle-checkbox {
-    display: none;
+.theme-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Солнце и луна */
-.sun-icon,
-.moon-icon {
+/* Иконки */
+.icon {
     position: absolute;
-    font-size: 18px;
-    transition: opacity 0.4s ease, transform 0.3s ease;
+    width: 20px;
+    height: 20px;
+    color: white;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.4s ease;
     pointer-events: none;
-    color: #fff;
 }
 
-.sun-icon {
-    opacity: 0;
-    transform: scale(0.8);
-}
-.moon-icon {
+.icon-sun {
     opacity: 1;
     transform: scale(1);
 }
 
-/* Активная светлая тема */
-body.light .sun-icon {
-    opacity: 1;
-    transform: scale(1);
-}
-body.light .moon-icon {
+body.light .icon-sun {
     opacity: 0;
     transform: scale(0.8);
 }
 
-/* Ползунок */
-.slider {
-    position: absolute;
-    width: 50px;
-    height: 26px;
-    background-color: #3498db;
-    border-radius: 30px;
-    transition: background-color 0.3s ease;
-    z-index: 0;
-}
-
-.slider::before {
-    content: "";
-    position: absolute;
-    height: 22px;
-    width: 22px;
-    left: 2px;
-    bottom: 2px;
-    background-color: white;
-    border-radius: 50%;
-    transition: all 0.3s ease;
-}
-
-/* Если активна светлая тема */
-.theme-toggle-checkbox:checked + .sun-icon ~ .slider::before {
-    transform: translateX(24px);
-}
-
-.theme-toggle-checkbox:checked ~ .slider {
-    background-color: #e67e22;
+body.light .icon-moon {
+    opacity: 1;
+    transform: scale(1);
 }
 
 /* Поиск */

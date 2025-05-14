@@ -1,25 +1,22 @@
-// Получаем элементы
-const themeToggle = document.getElementById('theme-toggle-checkbox');
+const themeToggle = document.getElementById('theme-toggle');
 const body = document.body;
 
-// Загружаем сохранённую тему из localStorage
+// Загрузка сохранённой темы
 document.addEventListener('DOMContentLoaded', () => {
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'light') {
         body.classList.add('light');
-        themeToggle.checked = true;
     } else {
         body.classList.remove('light');
-        themeToggle.checked = false;
     }
 });
 
 // Переключение темы
-themeToggle.addEventListener('change', () => {
-    body.classList.toggle('light', themeToggle.checked);
+themeToggle.addEventListener('click', () => {
+    body.classList.toggle('light');
 
-    // Сохраняем текущую тему
-    if (themeToggle.checked) {
+    // Сохраняем тему
+    if (body.classList.contains('light')) {
         localStorage.setItem('theme', 'light');
     } else {
         localStorage.setItem('theme', 'dark');
