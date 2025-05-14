@@ -230,7 +230,8 @@ body.light .links-scrollable::-webkit-scrollbar-track {
     border-radius: 10px;
     transition: transform 0.5s ease-in-out;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    background-color: #fff; /* чтобы скрыть прозрачные части, если нужно */
+    /* background-color: #fff; чтобы скрыть прозрачные части, если нужно */
+    background: transparent
 }
 
 /* Анимация при наведении */
