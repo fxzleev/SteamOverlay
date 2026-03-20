@@ -296,7 +296,6 @@ body.light .config-card {
     height: auto;
     border-radius: 10px;
     transition: transform 0.5s ease-in-out, filter 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     color: inherit;
     fill: currentColor;
     stroke: currentColor;
