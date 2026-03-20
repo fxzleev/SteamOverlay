@@ -286,7 +286,7 @@ body.light .links-scrollable::-webkit-scrollbar-thumb {
     animation: fadeInUp 1s ease-out;
 }
 
-.steam-logo-svg {
+.steam-logo {
     width: 200px;
     height: auto;
     border-radius: 10px;
@@ -297,7 +297,7 @@ body.light .links-scrollable::-webkit-scrollbar-thumb {
     stroke: currentColor;
 }
 
-.steam-logo-svg:hover {
+.steam-logo:hover {
     transform: rotate(360deg);
     filter: brightness(1.1);
 }
@@ -314,11 +314,9 @@ body.light .links-scrollable::-webkit-scrollbar-thumb {
 }
 
 .controls {
-    position: absolute;
-    top: 10px;
-    left: 10px;
     display: flex;
     gap: 10px;
+    justify-content: center;
     align-items: center;
 }
 
