@@ -6,30 +6,35 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #121212;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1a1a2e, #16213e); /* Градиент для фона */
     color: #ffffff;
-    transition: background-color 0.3s, color 0.3s;
+    transition: background 0.3s, color 0.3s;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
 }
 
 .container {
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 800px; /* Увеличенная ширина для лучшего отображения */
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 15px;
+    background-color: rgba(18, 18, 18, 0.85); /* Более темный и прозрачный фон */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     position: relative;
+    backdrop-filter: blur(10px); /* Эффект размытия фона */
 }
 
 header {
     position: relative;
     text-align: center;
     margin-bottom: 30px;
-}
-
-header h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Стиль кнопки переключения темы */
@@ -39,51 +44,42 @@ header h1 {
     right: 10px;
     width: 40px;
     height: 40px;
-    border: none;
-    background-color: rgba(255, 255, 255, 0.1); /* Темная тема по умолчанию */
-    color: white; /* Цвет иконок */
+    border: 1px solid #3498db;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #3498db;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
     z-index: 10;
 }
 
 .theme-toggle:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(52, 152, 219, 0.2);
+    transform: scale(1.05);
+}
+
+.theme-toggle.active { /* Добавлен класс для активного состояния */
+    background-color: rgba(52, 152, 219, 0.3);
+    box-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
 }
 
 /* На светлой теме — меняем цвет фона и иконок */
 body.light .theme-toggle {
-    background-color: rgba(0, 0, 0, 0.1); /* Легкий серый с прозрачностью */
-    color: black; /* Иконки станут черными */
+    background-color: rgba(0, 0, 0, 0.05);
+    color: #2980b9;
+    border-color: #2980b9;
 }
 
 body.light .theme-toggle:hover {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(41, 128, 185, 0.1);
 }
 
-.theme-toggle::after {
-    content: attr(aria-label);
-    position: absolute;
-    top: -30px;
-    right: 0;
-    background: #222;
-    color: #fff;
-    padding: 4px 8px;
-    font-size: 12px;
-    border-radius: 4px;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.2s ease;
-    white-space: nowrap;
-    font-family: sans-serif;
-}
-
-.theme-toggle:hover::after {
-    opacity: 1;
+body.light .theme-toggle.active {
+    background-color: rgba(41, 128, 185, 0.2);
+    box-shadow: 0 0 10px rgba(41, 128, 185, 0.5);
 }
 
 /* Поиск */
@@ -91,18 +87,19 @@ body.light .theme-toggle:hover {
     display: flex;
     justify-content: space-between;
     margin-bottom: 30px;
+    gap: 10px;
 }
 
 #search-input {
     flex-grow: 1;
-    padding: 12px 15px;
+    padding: 15px 20px;
     border: 2px solid #3498db;
     border-radius: 50px;
-    background-color: transparent;
+    background-color: rgba(255, 255, 255, 0.05);
     color: #ffffff;
     font-size: 16px;
     outline: none;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
 #search-input::placeholder {
@@ -111,43 +108,46 @@ body.light .theme-toggle:hover {
 
 #search-input:focus {
     border-color: #2980b9;
-    box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 12px rgba(52, 152, 219, 0.6);
 }
 
 #search-button {
-    background-color: #3498db;
+    background: linear-gradient(135deg, #3498db, #2980b9);
     color: white;
     border: none;
-    padding: 12px 20px;
+    padding: 15px 25px;
     border-radius: 50px;
     cursor: pointer;
     font-size: 16px;
-    transition: background-color 0.3s ease;
-    margin-left: 10px;
+    font-weight: bold;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
 }
 
 #search-button:hover {
-    background-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(52, 152, 219, 0.5);
 }
 
 /* Ссылки */
-.links-section {
-    margin-top: 20px;
-}
-
-.links-section h2 {
-    font-size: 20px;
-    margin-bottom: 10px;
+.links-section h2,
+.config-section h2 { /* Переименовано */
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #3498db;
+    text-align: center;
 }
 
 .links-scrollable {
-    max-height: 300px;
-    overflow-y: overlay; /* Полоса прокрутки внутри блока */
-    border-radius: 10px;
-    padding: 10px;
-    background-color: #1e1e1e;
-    scrollbar-width: thin; /* Для Firefox */
-    scrollbar-color: #3498db transparent; /* Для Firefox */
+    max-height: 400px;
+    overflow-y: overlay;
+    border-radius: 15px;
+    padding: 15px;
+    background-color: rgba(30, 30, 30, 0.7);
+    scrollbar-width: thin;
+    scrollbar-color: #3498db transparent;
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .links-scrollable ul {
@@ -159,13 +159,14 @@ body.light .theme-toggle:hover {
 }
 
 .links-scrollable li {
-    background-color: #2c2c2c;
-    padding: 15px;
-    border-radius: 10px;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #2c2c2c, #1e1e1e);
+    padding: 18px;
+    border-radius: 12px;
+    transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     cursor: pointer;
     overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .links-scrollable a {
@@ -178,8 +179,9 @@ body.light .theme-toggle:hover {
 }
 
 .links-scrollable li:hover {
-    background-color: #3498db;
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+    transform: translateY(-3px);
 }
 
 .links-scrollable li:hover a {
@@ -188,11 +190,11 @@ body.light .theme-toggle:hover {
 
 /* Стиль полосы прокрутки */
 .links-scrollable::-webkit-scrollbar {
-    width: 4px;
+    width: 8px;
 }
 
 .links-scrollable::-webkit-scrollbar-thumb {
-    background-color: #3498db;
+    background: linear-gradient(#3498db, #2980b9);
     border-radius: 10px;
 }
 
@@ -202,18 +204,19 @@ body.light .theme-toggle:hover {
 
 /* Светлая тема */
 body.light {
-    background-color: #ffffff;
+    background: linear-gradient(135deg, #e0eafc, #cfdef3);
     color: #000000;
 }
 
 body.light .container {
-    background-color: #f5f5f5;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 body.light #search-input {
-    border-color: #3498db;
+    border-color: #2980b9;
     color: #000000;
+    background-color: rgba(0, 0, 0, 0.05);
 }
 
 body.light #search-input::placeholder {
@@ -221,29 +224,31 @@ body.light #search-input::placeholder {
 }
 
 body.light #search-input:focus {
-    border-color: #2980b9;
-    box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
+    border-color: #3498db;
+    background-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 12px rgba(41, 128, 185, 0.6);
 }
 
 body.light #search-button {
-    background-color: #3498db;
-    color: white;
+    background: linear-gradient(135deg, #2980b9, #3498db);
 }
 
 body.light #search-button:hover {
-    background-color: #2980b9;
+    box-shadow: 0 6px 15px rgba(41, 128, 185, 0.5);
 }
 
 body.light .links-scrollable {
-    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-color: rgba(0, 0, 0, 0.1);
 }
 
 body.light .links-scrollable li {
-    background-color: #e0e0e0;
+    background: linear-gradient(135deg, #f5f7fa, #e4e7f0);
+    border-color: rgba(0, 0, 0, 0.1);
 }
 
 body.light .links-scrollable li:hover {
-    background-color: #3498db;
+    background: linear-gradient(135deg, #2980b9, #3498db);
 }
 
 body.light .links-scrollable a {
@@ -255,8 +260,13 @@ body.light .links-scrollable li:hover a {
 }
 
 body.light .links-scrollable::-webkit-scrollbar-track {
-    background-color: #ffffff;
+    background-color: #f0f0f0;
 }
+
+body.light .links-scrollable::-webkit-scrollbar-thumb {
+    background: linear-gradient(#2980b9, #3498db);
+}
+
 .logo-container {
     display: flex;
     justify-content: center;
@@ -266,21 +276,19 @@ body.light .links-scrollable::-webkit-scrollbar-track {
 }
 
 .steam-logo {
-    width: 200px; /* Можно изменить под себя */
+    width: 200px;
     height: auto;
     border-radius: 10px;
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.5s ease-in-out, filter 0.3s ease;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    /* background-color: #fff; чтобы скрыть прозрачные части, если нужно */
-    background: transparent
+    background: transparent;
 }
 
-/* Анимация при наведении */
 .steam-logo:hover {
     transform: rotate(360deg);
+    filter: brightness(1.1);
 }
 
-/* Плавное появление */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -300,46 +308,100 @@ body.light .links-scrollable::-webkit-scrollbar-track {
     gap: 10px;
 }
 
-#training-button {
-    background-color: #e74c3c;
+#config-button { /* Переименовано */
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
     color: white;
     border: none;
-    padding: 8px 16px;
+    padding: 10px 20px;
     border-radius: 50px;
     font-size: 14px;
+    font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 10px rgba(231, 76, 60, 0.3);
 }
 
-#training-button:hover {
-    background-color: #c0392b;
+#config-button:hover { /* Переименовано */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(231, 76, 60, 0.5);
 }
 
-.training-buttons {
+.config-buttons { /* Переименовано */
     display: flex;
     gap: 10px;
     margin-top: 10px;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .game-btn {
-    background-color: #3498db;
+    background: linear-gradient(135deg, #3498db, #2980b9);
     color: white;
     border: none;
-    padding: 10px 15px;
+    padding: 12px 20px;
     border-radius: 50px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
 }
 
-.game-btn:hover {
-    background-color: #2980b9;
+.game-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(52, 152, 219, 0.5);
+}
+
+.game-btn:disabled {
+    background: linear-gradient(135deg, #95a5a6, #7f8c8d);
+    cursor: not-allowed;
+    opacity: 0.6;
 }
 
 .game-content {
     margin-top: 20px;
-    padding: 15px;
+    padding: 20px;
     background-color: rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    min-height: 100px;
+    border-radius: 12px;
+    min-height: 150px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Стили для карточки конфига */
+.config-card {
+    background: linear-gradient(135deg, #2c2c2c, #1e1e1e);
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.config-card h3 {
+    color: #3498db;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.config-card p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.download-btn {
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: inline-block;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(46, 204, 113, 0.3);
+}
+
+.download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(46, 204, 113, 0.5);
 }
