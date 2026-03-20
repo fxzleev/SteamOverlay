@@ -1,4 +1,3 @@
-/* Общие стили */
 * {
     margin: 0;
     padding: 0;
@@ -7,7 +6,7 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #1a1a2e, #16213e); /* Градиент для фона */
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
     color: #ffffff;
     transition: background 0.3s, color 0.3s;
     min-height: 100vh;
@@ -19,14 +18,14 @@ body {
 
 .container {
     width: 100%;
-    max-width: 800px; /* Увеличенная ширина для лучшего отображения */
+    max-width: 800px;
     margin: 0 auto;
     padding: 30px;
     border-radius: 15px;
-    background-color: rgba(18, 18, 18, 0.85); /* Более темный и прозрачный фон */
+    background-color: rgba(18, 18, 18, 0.85);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     position: relative;
-    backdrop-filter: blur(10px); /* Эффект размытия фона */
+    backdrop-filter: blur(10px);
 }
 
 header {
@@ -37,56 +36,67 @@ header {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Стиль переключателя темы */
-.switch {
+.theme-switch {
   position: absolute;
-  top: 10px; /* Отступ от верхнего края контейнера */
-  left: 10px; /* Отступ от левого края контейнера */
+  top: 10px;
+  left: 10px;
+  width: 60px;
+  height: 34px;
   display: inline-block;
-  width: 50px;
-  height: 26px;
-  z-index: 10; /* Убедимся, что он поверх других элементов */
+  cursor: pointer;
+  z-index: 10;
 }
 
-.switch input {
+.theme-switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
 
 .slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #3498db; /* Цвет фона в темной теме */
-  transition: .4s;
-  border-radius: 34px; /* Скругление краев */
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #e0e0e0;
+  border-radius: 34px;
+  transition: background 0.4s ease;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.slider:before {
-  position: absolute;
+.slider::before {
   content: "";
-  height: 18px;
-  width: 18px;
+  position: absolute;
+  top: 4px;
   left: 4px;
-  bottom: 4px;
-  background-color: white; /* Цвет ползунка */
-  transition: .4s;
-  border-radius: 50%; /* Круглый ползунок */
+  width: 26px;
+  height: 26px;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s ease;
 }
 
-input:checked + .slider {
-  background-color: #2980b9; /* Цвет фона в светлой теме */
+input:checked + .slider::before {
+  transform: translateX(26px);
 }
 
-input:checked + .slider:before {
-  transform: translateX(24px); /* Смещение ползунка при включении */
+body:not(.light) .theme-switch .slider {
+  background: #333333;
 }
 
-/* Светлая тема */
+body:not(.light) .theme-switch .slider::before {
+  background: #f1f1f1;
+}
+
+body.light .theme-switch .slider {
+  background: #e0e0e0;
+}
+
+body.light .theme-switch .slider::before {
+  background: #757575;
+}
+
 body.light {
     background: linear-gradient(135deg, #e0eafc, #cfdef3);
     color: #000000;
@@ -97,15 +107,6 @@ body.light .container {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
-body.light .slider {
-  background-color: #2980b9; /* Цвет фона в светлой теме */
-}
-
-body.light .slider:before {
-  background-color: white; /* Цвет ползунка в светлой теме */
-}
-
-/* Поиск */
 .search-section {
     display: flex;
     justify-content: space-between;
@@ -153,7 +154,6 @@ body.light .slider:before {
     box-shadow: 0 6px 15px rgba(52, 152, 219, 0.5);
 }
 
-/* Ссылки */
 .links-section h2,
 .config-section h2 {
     font-size: 24px;
@@ -211,7 +211,6 @@ body.light .slider:before {
     color: #ffffff;
 }
 
-/* Стиль полосы прокрутки */
 .links-scrollable::-webkit-scrollbar {
     width: 8px;
 }
@@ -287,16 +286,18 @@ body.light .links-scrollable::-webkit-scrollbar-thumb {
     animation: fadeInUp 1s ease-out;
 }
 
-.steam-logo {
+.steam-logo-svg {
     width: 200px;
     height: auto;
     border-radius: 10px;
     transition: transform 0.5s ease-in-out, filter 0.3s ease;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    background: transparent;
+    color: inherit;
+    fill: currentColor;
+    stroke: currentColor;
 }
 
-.steam-logo:hover {
+.steam-logo-svg:hover {
     transform: rotate(360deg);
     filter: brightness(1.1);
 }
@@ -315,13 +316,16 @@ body.light .links-scrollable::-webkit-scrollbar-thumb {
 .controls {
     position: absolute;
     top: 10px;
-    right: 10px; /* Кнопка "Конфиг" остается справа */
+    left: 10px;
     display: flex;
     gap: 10px;
-    align-items: center; /* Выравнивание по центру по вертикали */
+    align-items: center;
 }
 
 #config-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
     background: linear-gradient(135deg, #e74c3c, #c0392b);
     color: white;
     border: none;
@@ -332,6 +336,7 @@ body.light .links-scrollable::-webkit-scrollbar-thumb {
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     box-shadow: 0 4px 10px rgba(231, 76, 60, 0.3);
+    z-index: 10;
 }
 
 #config-button:hover {
@@ -379,7 +384,6 @@ body.light .links-scrollable::-webkit-scrollbar-thumb {
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Стили для карточки конфига */
 .config-card {
     background: linear-gradient(135deg, #2c2c2c, #1e1e1e);
     padding: 20px;

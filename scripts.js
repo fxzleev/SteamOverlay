@@ -1,22 +1,18 @@
 const themeToggle = document.getElementById('theme-toggle')
-const themeToggleLabel = document.getElementById('theme-toggle-label') // Добавлено для работы с label
 const body = document.body
 
-// Загрузка сохранённой темы
 document.addEventListener('DOMContentLoaded', () => {
 	const savedTheme = localStorage.getItem('theme')
 	if (savedTheme === 'light') {
 		body.classList.add('light')
-		themeToggle.checked = true // Устанавливаем состояние чекбокса в соответствии с сохраненной темой
+		themeToggle.checked = true
 	} else {
 		body.classList.remove('light')
 		themeToggle.checked = false
 	}
 })
 
-// Переключение темы
 themeToggle.addEventListener('change', () => {
-	// Изменено с 'click' на 'change'
 	if (themeToggle.checked) {
 		body.classList.add('light')
 		localStorage.setItem('theme', 'light')
@@ -26,14 +22,6 @@ themeToggle.addEventListener('change', () => {
 	}
 })
 
-// Также обрабатываем клик по label для корректной работы
-themeToggleLabel.addEventListener('click', () => {
-	// Состояние будет изменено автоматически через связь input <-> label,
-	// но мы можем вызвать событие change для надежности, если оно не сработало.
-	// Обычно этого не требуется, так как click по label автоматически вызывает change на input.
-})
-
-// Поиск в Google
 const searchInput = document.getElementById('search-input')
 const searchButton = document.getElementById('search-button')
 
@@ -50,26 +38,26 @@ searchInput.addEventListener('keypress', event => {
 	}
 })
 
-// Конфиг: переключение между ссылками и меню конфигов
 const configButton = document.getElementById('config-button')
 const linksSection = document.getElementById('links-section')
 const configSection = document.getElementById('config-section')
 const gameContent = document.getElementById('game-content')
 
-configButton.addEventListener('click', () => {
-	const isConfigMode = configSection.style.display === 'block'
+if (configButton) {
+	configButton.addEventListener('click', () => {
+		const isConfigMode = configSection.style.display === 'block'
 
-	// Переключаем видимость секций
-	configSection.style.display = isConfigMode ? 'none' : 'block'
-	linksSection.style.display = isConfigMode ? 'block' : 'none'
+		configSection.style.display = isConfigMode ? 'none' : 'block'
+		linksSection.style.display = isConfigMode ? 'block' : 'none'
 
-	// Очищаем контент при выходе из режима конфига
-	if (isConfigMode) {
-		gameContent.innerHTML = ''
-	}
-})
+		if (isConfigMode) {
+			gameContent.innerHTML = ''
+		}
+	})
+} else {
+	console.error("Элемент с id='config-button' не найден в DOM.")
+}
 
-// Обработка выбора игры
 document.querySelectorAll('.game-btn').forEach(button => {
 	button.addEventListener('click', () => {
 		const game = button.getAttribute('data-game')
