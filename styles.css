@@ -278,6 +278,11 @@ body.light .links-scrollable::-webkit-scrollbar-thumb {
     background: linear-gradient(#2980b9, #3498db);
 }
 
+body.light .config-card {
+    background: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
 .logo-container {
     display: flex;
     justify-content: center;
