@@ -1,4 +1,5 @@
 const themeToggle = document.getElementById('theme-toggle')
+const themeToggleLabel = document.getElementById('theme-toggle-label') // Добавлено для работы с label
 const body = document.body
 
 // Загрузка сохранённой темы
@@ -6,24 +7,30 @@ document.addEventListener('DOMContentLoaded', () => {
 	const savedTheme = localStorage.getItem('theme')
 	if (savedTheme === 'light') {
 		body.classList.add('light')
-		themeToggle.classList.add('active') // Установка активного состояния для кнопки
+		themeToggle.checked = true // Устанавливаем состояние чекбокса в соответствии с сохраненной темой
 	} else {
 		body.classList.remove('light')
-		themeToggle.classList.remove('active')
+		themeToggle.checked = false
 	}
 })
 
 // Переключение темы
-themeToggle.addEventListener('click', () => {
-	body.classList.toggle('light')
-	themeToggle.classList.toggle('active') // Переключение активного состояния для кнопки
-
-	// Сохраняем тему
-	if (body.classList.contains('light')) {
+themeToggle.addEventListener('change', () => {
+	// Изменено с 'click' на 'change'
+	if (themeToggle.checked) {
+		body.classList.add('light')
 		localStorage.setItem('theme', 'light')
 	} else {
+		body.classList.remove('light')
 		localStorage.setItem('theme', 'dark')
 	}
+})
+
+// Также обрабатываем клик по label для корректной работы
+themeToggleLabel.addEventListener('click', () => {
+	// Состояние будет изменено автоматически через связь input <-> label,
+	// но мы можем вызвать событие change для надежности, если оно не сработало.
+	// Обычно этого не требуется, так как click по label автоматически вызывает change на input.
 })
 
 // Поиск в Google
@@ -44,17 +51,16 @@ searchInput.addEventListener('keypress', event => {
 })
 
 // Конфиг: переключение между ссылками и меню конфигов
-const configButton = document.getElementById('config-button') // Переименовано
+const configButton = document.getElementById('config-button')
 const linksSection = document.getElementById('links-section')
-const configSection = document.getElementById('config-section') // Переименовано
+const configSection = document.getElementById('config-section')
 const gameContent = document.getElementById('game-content')
 
 configButton.addEventListener('click', () => {
-	// Переименовано
-	const isConfigMode = configSection.style.display === 'block' // Переименовано
+	const isConfigMode = configSection.style.display === 'block'
 
 	// Переключаем видимость секций
-	configSection.style.display = isConfigMode ? 'none' : 'block' // Переименовано
+	configSection.style.display = isConfigMode ? 'none' : 'block'
 	linksSection.style.display = isConfigMode ? 'block' : 'none'
 
 	// Очищаем контент при выходе из режима конфига

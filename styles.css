@@ -37,49 +37,72 @@ header {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Стиль кнопки переключения темы */
-.theme-toggle {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 40px;
-    height: 40px;
-    border: 1px solid #3498db;
-    background-color: rgba(255, 255, 255, 0.05);
-    color: #3498db;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
-    z-index: 10;
+/* Стиль переключателя темы */
+.switch {
+  position: absolute;
+  top: 10px; /* Отступ от верхнего края контейнера */
+  left: 10px; /* Отступ от левого края контейнера */
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+  z-index: 10; /* Убедимся, что он поверх других элементов */
 }
 
-.theme-toggle:hover {
-    background-color: rgba(52, 152, 219, 0.2);
-    transform: scale(1.05);
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
 }
 
-.theme-toggle.active { /* Добавлен класс для активного состояния */
-    background-color: rgba(52, 152, 219, 0.3);
-    box-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #3498db; /* Цвет фона в темной теме */
+  transition: .4s;
+  border-radius: 34px; /* Скругление краев */
 }
 
-/* На светлой теме — меняем цвет фона и иконок */
-body.light .theme-toggle {
-    background-color: rgba(0, 0, 0, 0.05);
-    color: #2980b9;
-    border-color: #2980b9;
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white; /* Цвет ползунка */
+  transition: .4s;
+  border-radius: 50%; /* Круглый ползунок */
 }
 
-body.light .theme-toggle:hover {
-    background-color: rgba(41, 128, 185, 0.1);
+input:checked + .slider {
+  background-color: #2980b9; /* Цвет фона в светлой теме */
 }
 
-body.light .theme-toggle.active {
-    background-color: rgba(41, 128, 185, 0.2);
-    box-shadow: 0 0 10px rgba(41, 128, 185, 0.5);
+input:checked + .slider:before {
+  transform: translateX(24px); /* Смещение ползунка при включении */
+}
+
+/* Светлая тема */
+body.light {
+    background: linear-gradient(135deg, #e0eafc, #cfdef3);
+    color: #000000;
+}
+
+body.light .container {
+    background-color: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+body.light .slider {
+  background-color: #2980b9; /* Цвет фона в светлой теме */
+}
+
+body.light .slider:before {
+  background-color: white; /* Цвет ползунка в светлой теме */
 }
 
 /* Поиск */
@@ -132,7 +155,7 @@ body.light .theme-toggle.active {
 
 /* Ссылки */
 .links-section h2,
-.config-section h2 { /* Переименовано */
+.config-section h2 {
     font-size: 24px;
     margin-bottom: 20px;
     color: #3498db;
@@ -200,17 +223,6 @@ body.light .theme-toggle.active {
 
 .links-scrollable::-webkit-scrollbar-track {
     background-color: transparent;
-}
-
-/* Светлая тема */
-body.light {
-    background: linear-gradient(135deg, #e0eafc, #cfdef3);
-    color: #000000;
-}
-
-body.light .container {
-    background-color: rgba(255, 255, 255, 0.85);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 body.light #search-input {
@@ -303,12 +315,13 @@ body.light .links-scrollable::-webkit-scrollbar-thumb {
 .controls {
     position: absolute;
     top: 10px;
-    right: 60px;
+    right: 10px; /* Кнопка "Конфиг" остается справа */
     display: flex;
     gap: 10px;
+    align-items: center; /* Выравнивание по центру по вертикали */
 }
 
-#config-button { /* Переименовано */
+#config-button {
     background: linear-gradient(135deg, #e74c3c, #c0392b);
     color: white;
     border: none;
@@ -321,12 +334,12 @@ body.light .links-scrollable::-webkit-scrollbar-thumb {
     box-shadow: 0 4px 10px rgba(231, 76, 60, 0.3);
 }
 
-#config-button:hover { /* Переименовано */
+#config-button:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 15px rgba(231, 76, 60, 0.5);
 }
 
-.config-buttons { /* Переименовано */
+.config-buttons {
     display: flex;
     gap: 10px;
     margin-top: 10px;
